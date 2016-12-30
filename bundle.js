@@ -21595,10 +21595,10 @@
 	var Clock = function (_React$Component) {
 	  _inherits(Clock, _React$Component);
 	
-	  function Clock(props) {
+	  function Clock() {
 	    _classCallCheck(this, Clock);
 	
-	    var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this));
 	
 	    _this.state = { time: new Date() };
 	    return _this;
@@ -21617,7 +21617,6 @@
 	  }, {
 	    key: "incrementTime",
 	    value: function incrementTime() {
-	      // console.log(this.state.time);
 	      var currentSeconds = this.state.time.getSeconds();
 	      var newSeconds = this.state.time.setSeconds(currentSeconds + 1);
 	      var time = new Date(newSeconds);

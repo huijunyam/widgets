@@ -1,8 +1,8 @@
 import React from "react";
 
 class Clock extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { time: new Date() };
   }
 
@@ -15,7 +15,6 @@ class Clock extends React.Component {
   }
 
   incrementTime() {
-    // console.log(this.state.time);
     let currentSeconds = this.state.time.getSeconds();
     let newSeconds = this.state.time.setSeconds(currentSeconds + 1);
     let time = new Date(newSeconds);
