@@ -12,6 +12,10 @@ html, body, li, ul, div, article {
   background: transparent;
 }
 
+div {
+  margin: 20px;
+}
+
 div .tab-widget{
   display: flex;
   flex-direction: column;
@@ -70,6 +74,7 @@ div .tab-widget{
   justify-content: space-between;
   background-image: url(http://slodive.com/wp-content/uploads/2012/09/plain-backgrounds/plain-calm.jpg);
   background-size: cover;
+  margin: 0;
 }
 
 .weatherWidget {
