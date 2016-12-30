@@ -21636,6 +21636,14 @@
 	      this.setState({ time: time });
 	    }
 	  }, {
+	    key: "padding",
+	    value: function padding(time) {
+	      if (time < 10) {
+	        return "0" + time;
+	      }
+	      return time;
+	    }
+	  }, {
 	    key: "render",
 	    value: function render() {
 	      var hours = this.state.time.getHours(),
@@ -21675,7 +21683,7 @@
 	          _react2.default.createElement(
 	            "h1",
 	            null,
-	            hours + ":" + minutes + ":" + seconds
+	            this.padding(hours) + ":" + this.padding(minutes) + ":" + this.padding(seconds)
 	          )
 	        )
 	      );

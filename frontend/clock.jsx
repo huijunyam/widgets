@@ -21,6 +21,13 @@ class Clock extends React.Component {
     this.setState({time});
   }
 
+  padding(time) {
+    if (time < 10) {
+      return `0${time}`;
+    }
+    return time;
+  }
+
   render() {
     let hours = this.state.time.getHours(),
         minutes = this.state.time.getMinutes(),
@@ -35,7 +42,7 @@ class Clock extends React.Component {
         </div>
         <div className="time">
           <h1>Time</h1>
-          <h1>{`${hours}:${minutes}:${seconds}`}</h1>
+          <h1>{`${this.padding(hours)}:${this.padding(minutes)}:${this.padding(seconds)}`}</h1>
         </div>
       </div>
     );

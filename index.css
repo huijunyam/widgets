@@ -29,14 +29,17 @@ div .tab-widget{
 .tab-widget li {
   text-align: center;
   width: 50%;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 3px;
   background-color: green;
+  padding: 10px;
 }
 
 .tab-widget article {
-  background-color: lightgreen;
+  background-image: url(http://www.iphoneheat.com/wp-content/uploads/2012/09/iphone-5-wallpaper-386.jpg);
+  background-size: cover;
   height: 100%;
+  border: 2px solid black;
 }
 
 .tab-widget li:hover {
@@ -65,7 +68,8 @@ div .tab-widget{
 .date, .time {
   display: flex;
   justify-content: space-between;
-  background-color: orange;
+  background-image: url(http://slodive.com/wp-content/uploads/2012/09/plain-backgrounds/plain-calm.jpg);
+  background-size: cover;
 }
 
 .weatherWidget {
@@ -82,20 +86,23 @@ div .tab-widget{
   text-align: center;
 }
 
-.auto-complete {
+.auto-complete .list{
   margin-left: 20px;
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border: 2px solid black;
+  border-radius: 3px;
   background-image: url(http://www.pixelstalk.net/wp-content/uploads/2016/07/Purple-plain-background.jpg);
   background-size: cover;
 }
 
 .auto-complete .list input{
-  margin: 0 20px 20px 20px;
+  font-size: 20px;
+  margin: 20px;
 }
 
 .auto-complete .list ul {
+  font-size: 20px;
   margin: 0 20px 20px 20px;
   cursor: pointer;
 }
