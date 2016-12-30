@@ -21,7 +21,7 @@ class AutoComplete extends React.Component {
         }
       });
     } else {
-      matches.concat(this.props.names);
+      return this.props.names;
     }
     if (matches.length === 0) {
       matches.push("no matches");

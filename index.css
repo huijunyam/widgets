@@ -15,7 +15,8 @@ html, body, li, ul, div, article {
 div .tab-widget{
   display: flex;
   flex-direction: column;
-  width: 100px;
+  width: 200px;
+  height: 300px;
 }
 
 .tab-widget ul {
@@ -27,14 +28,15 @@ div .tab-widget{
 
 .tab-widget li {
   text-align: center;
-  width: 50px;
+  width: 50%;
   border: 1px solid black;
   border-radius: 3px;
   background-color: green;
 }
 
 .tab-widget article {
-  background-color: gray;
+  background-color: lightgreen;
+  height: 100%;
 }
 
 .tab-widget li:hover {
@@ -78,4 +80,22 @@ div .tab-widget{
   background-size: cover;
   justify-content: center;
   text-align: center;
+}
+
+.auto-complete {
+  margin-left: 20px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid black;
+  background-image: url(http://www.pixelstalk.net/wp-content/uploads/2016/07/Purple-plain-background.jpg);
+  background-size: cover;
+}
+
+.auto-complete .list input{
+  margin: 0 20px 20px 20px;
+}
+
+.auto-complete .list ul {
+  margin: 0 20px 20px 20px;
+  cursor: pointer;
 }

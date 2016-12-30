@@ -21646,7 +21646,7 @@
 	        "div",
 	        { className: "clock-widget" },
 	        _react2.default.createElement(
-	          "span",
+	          "h1",
 	          null,
 	          "Clock"
 	        ),
@@ -21859,7 +21859,7 @@
 	          });
 	        })();
 	      } else {
-	        matches.concat(this.props.names);
+	        return this.props.names;
 	      }
 	      if (matches.length === 0) {
 	        matches.push("no matches");

@@ -28,7 +28,7 @@ class Clock extends React.Component {
 
     return (
       <div className="clock-widget">
-        <span>Clock</span>
+        <h1>Clock</h1>
         <div className="date">
           <h1>Date</h1>
           <h1>{this.state.time.toDateString()}</h1>
