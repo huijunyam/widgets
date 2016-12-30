@@ -66,9 +66,14 @@
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
+	var _autocomplete = __webpack_require__(181);
+	
+	var _autocomplete2 = _interopRequireDefault(_autocomplete);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var tabs = [{ title: "tab1", content: "content1" }, { title: "tab2", content: "content2" }];
+	var names = ["Alice", "Ben", "James", "John", "Sarah", "Sean", "Zedd"];
 	
 	document.addEventListener("DOMContentLoaded", function () {
 	  var tabWidget = document.getElementById("tabWidget");
@@ -79,6 +84,9 @@
 	
 	  var weatherWidget = document.getElementById("weatherWidget");
 	  _reactDom2.default.render(_react2.default.createElement(_weather2.default, null), weatherWidget);
+	
+	  var autoComplete = document.getElementById("autoComplete");
+	  _reactDom2.default.render(_react2.default.createElement(_autocomplete2.default, { names: names }), autoComplete);
 	});
 
 /***/ },
@@ -21792,6 +21800,120 @@
 	}(_react2.default.Component);
 	
 	exports.default = Weather;
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AutoComplete = function (_React$Component) {
+	  _inherits(AutoComplete, _React$Component);
+	
+	  function AutoComplete(props) {
+	    _classCallCheck(this, AutoComplete);
+	
+	    var _this = _possibleConstructorReturn(this, (AutoComplete.__proto__ || Object.getPrototypeOf(AutoComplete)).call(this, props));
+	
+	    _this.state = { inputName: "" };
+	    return _this;
+	  }
+	
+	  _createClass(AutoComplete, [{
+	    key: "handleInput",
+	    value: function handleInput(event) {
+	      event.preventDefault();
+	      this.setState({ inputName: event.currentTarget.value });
+	    }
+	  }, {
+	    key: "listMatches",
+	    value: function listMatches() {
+	      var _this2 = this;
+	
+	      var matches = [];
+	      if (this.state.inputName.length !== 0) {
+	        (function () {
+	          var input = _this2.state.inputName.toLowerCase();
+	          _this2.props.names.forEach(function (name) {
+	            if (name.slice(0, input.length).toLowerCase() === input) {
+	              matches.push(name);
+	            }
+	          });
+	        })();
+	      } else {
+	        matches.concat(this.props.names);
+	      }
+	      if (matches.length === 0) {
+	        matches.push("no matches");
+	      }
+	      return matches;
+	    }
+	  }, {
+	    key: "click",
+	    value: function click(event) {
+	      event.preventDefault();
+	      this.setState({ inputName: event.currentTarget.innerText });
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      var _this3 = this;
+	
+	      var result = this.listMatches().map(function (name, idx) {
+	        return _react2.default.createElement(
+	          "li",
+	          { key: idx, onClick: _this3.click.bind(_this3) },
+	          name
+	        );
+	      });
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "auto-complete" },
+	        _react2.default.createElement(
+	          "h1",
+	          null,
+	          "Auto Complete"
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "list" },
+	          _react2.default.createElement("input", {
+	            type: "text",
+	            placeholder: "search...",
+	            onChange: this.handleInput.bind(this),
+	            value: this.state.inputName }),
+	          _react2.default.createElement(
+	            "ul",
+	            null,
+	            result
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return AutoComplete;
+	}(_react2.default.Component);
+	
+	exports.default = AutoComplete;
 
 /***/ }
 /******/ ]);
