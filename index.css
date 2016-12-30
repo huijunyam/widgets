@@ -46,7 +46,13 @@ div .tab-widget{
   width: 500px;
   display: flex;
   flex-direction: column;
-  background: orange;
+}
+
+.clock-widget span {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin: 10px;
 }
 
 .clock-widget h1{
@@ -57,4 +63,19 @@ div .tab-widget{
 .date, .time {
   display: flex;
   justify-content: space-between;
+  background-color: orange;
+}
+
+.weatherWidget {
+  width: 500px;
+}
+
+.weather {
+  padding: 10px;
+  border: 2px solid black;
+  margin: 0 20px 20px 20px;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/0c/Golden_Gate_Bridge,_San_Francisco_and_Sutro_Tower.jpg);
+  background-size: cover;
+  justify-content: center;
+  text-align: center;
 }

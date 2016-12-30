@@ -21544,6 +21544,11 @@
 	        "div",
 	        { className: "tab-widget" },
 	        _react2.default.createElement(
+	          "h1",
+	          null,
+	          "Tabs"
+	        ),
+	        _react2.default.createElement(
 	          "ul",
 	          null,
 	          this.state.tabs.map(function (tab, idx) {
@@ -21632,6 +21637,11 @@
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "clock-widget" },
+	        _react2.default.createElement(
+	          "span",
+	          null,
+	          "Clock"
+	        ),
 	        _react2.default.createElement(
 	          "div",
 	          { className: "date" },
@@ -21771,7 +21781,7 @@
 	        ),
 	        _react2.default.createElement(
 	          "div",
-	          null,
+	          { className: "weather" },
 	          content
 	        )
 	      );

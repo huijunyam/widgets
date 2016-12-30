@@ -13,6 +13,7 @@ class Tabs extends React.Component {
   render() {
     return (
       <div className="tab-widget">
+        <h1>Tabs</h1>
         <ul>
           {
             this.state.tabs.map((tab, idx) => (
