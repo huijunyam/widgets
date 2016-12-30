@@ -11,17 +11,19 @@ class Tabs extends React.Component {
   }
 
   render() {
-    return (<div className="tab-widget"><ul>
-      {
-        this.state.tabs.map((tab, idx) => (
-          <li onClick={this.setCurrentTab.bind(this, idx)} key={idx}>{tab.title}</li>
-        ))
-      }
-    </ul>
-    <article>
-      {this.state.tabs[this.state.tabIndex].content}
-    </article>
-    </div>);
+    return (
+      <div className="tab-widget">
+        <ul>
+          {
+            this.state.tabs.map((tab, idx) => (
+              <li onClick={this.setCurrentTab.bind(this, idx)} key={idx}>{tab.title}</li>
+            ))
+          }
+        </ul>
+        <article>
+          {this.state.tabs[this.state.tabIndex].content}
+        </article>
+      </div>);
   }
 
 }

@@ -13,6 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const clockWidget = document.getElementById("clockWidget");
   ReactDOM.render(<Clock />, clockWidget);
 
-  const weatherWidget = document.getElementById("weatherWidget");
-  ReactDOM.render(<Weather />, weatherWidget);
+  // const weatherWidget = document.getElementById("weatherWidget");
+  // ReactDOM.render(<Weather />, weatherWidget);
 });

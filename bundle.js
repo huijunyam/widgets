@@ -77,8 +77,8 @@
 	  var clockWidget = document.getElementById("clockWidget");
 	  _reactDom2.default.render(_react2.default.createElement(_clock2.default, null), clockWidget);
 	
-	  var weatherWidget = document.getElementById("weatherWidget");
-	  _reactDom2.default.render(_react2.default.createElement(_weather2.default, null), weatherWidget);
+	  // const weatherWidget = document.getElementById("weatherWidget");
+	  // ReactDOM.render(<Weather />, weatherWidget);
 	});
 
 /***/ },
@@ -21680,8 +21680,6 @@
 	  value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -21700,29 +21698,8 @@
 	  function Weather() {
 	    _classCallCheck(this, Weather);
 	
-	    var _this = _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).call(this));
-	
-	    _this.state = { location: "" };
-	    return _this;
+	    return _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).apply(this, arguments));
 	  }
-	
-	  _createClass(Weather, [{
-	    key: "componentDidMount",
-	    value: function componentDidMount() {
-	      console.log(navigator.geolocation.getCurrentPosition());
-	      // this.setState({ location: navigator.geolocation});
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "weatherWidget" },
-	        this.state.location
-	      );
-	    }
-	  }]);
 	
 	  return Weather;
 	}(_react2.default.Component);
