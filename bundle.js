@@ -77,8 +77,8 @@
 	  var clockWidget = document.getElementById("clockWidget");
 	  _reactDom2.default.render(_react2.default.createElement(_clock2.default, null), clockWidget);
 	
-	  // const weatherWidget = document.getElementById("weatherWidget");
-	  // ReactDOM.render(<Weather />, weatherWidget);
+	  var weatherWidget = document.getElementById("weatherWidget");
+	  _reactDom2.default.render(_react2.default.createElement(_weather2.default, null), weatherWidget);
 	});
 
 /***/ },
@@ -21679,6 +21679,8 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -21697,8 +21699,84 @@
 	  function Weather() {
 	    _classCallCheck(this, Weather);
 	
-	    return _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).call(this));
+	
+	    _this.state = { weather: "" };
+	    return _this;
 	  }
+	
+	  _createClass(Weather, [{
+	    key: "componentDidMount",
+	    value: function componentDidMount() {
+	      navigator.geolocation.getCurrentPosition(this.pollWeather.bind(this));
+	    }
+	  }, {
+	    key: "pollWeather",
+	    value: function pollWeather(location) {
+	      var _this2 = this;
+	
+	      var latitude = location.coords.latitude;
+	      var longitude = location.coords.longitude;
+	      var url = "http://api.openweathermap.org/data/2.5/weather?";
+	      var apiKey = "96cd5bdb955ef60254ad9808fcb5e691";
+	      url = url + ("lat=" + latitude) + ("&lon=" + longitude) + ("&APPID=" + apiKey);
+	      var xmlhttp = new XMLHttpRequest();
+	
+	      xmlhttp.onreadystatechange = function () {
+	        if (xmlhttp.status === 200 && xmlhttp.readyState === XMLHttpRequest.DONE) {
+	          var data = JSON.parse(xmlhttp.responseText);
+	          _this2.setState({ weather: data });
+	        }
+	      };
+	      xmlhttp.open("GET", url, true);
+	      xmlhttp.send();
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      var content = _react2.default.createElement("div", null);
+	      if (this.state.weather) {
+	        var location = this.state.weather.name;
+	        var temperature = this.state.weather.main.temp * 9 / 5 - 459.67;
+	        content = _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement(
+	            "h1",
+	            null,
+	            location
+	          ),
+	          _react2.default.createElement(
+	            "h1",
+	            null,
+	            temperature.toFixed(2),
+	            " deg"
+	          )
+	        );
+	      } else {
+	        content = _react2.default.createElement(
+	          "div",
+	          { className: "loading" },
+	          "Fetching weather data..."
+	        );
+	      }
+	
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "weatherWidget" },
+	        _react2.default.createElement(
+	          "h1",
+	          null,
+	          "Weather"
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          null,
+	          content
+	        )
+	      );
+	    }
+	  }]);
 	
 	  return Weather;
 	}(_react2.default.Component);
